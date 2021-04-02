@@ -6,7 +6,7 @@ import subprocess
 
 
 
-app = Flask('diabetes_app')
+app = Flask('diabetes_app', template_folder='templates')
 model = load_model('webapp.h5')
 
 @app.route('/')
