@@ -1,13 +1,13 @@
 from flask import Flask
 from flask import render_template
-from keras import load_model
+from tensorflow.keras.models import load_model
 from flask import request
 import subprocess
 
 
 
-app = Flask('diabetes_app', template_folder='templates')
-model = load_model('webapp.h5')
+app = Flask('diabetes_app', template_folder='/code/templates')
+model = load_model('/code/webapp.h5', compile = False)
 
 @app.route('/')
 def homepage():
@@ -28,3 +28,6 @@ def modelrun():
         return YES
     else:
         return NO
+
+ip = subprocess.getoutput("hostname -I | awk '{print $1}'")
+app.run(host = ip , port = 80)
