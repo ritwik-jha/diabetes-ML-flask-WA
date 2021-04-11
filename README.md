@@ -1,1 +1,1 @@
-# diabetes-ML-flask-WA
+# Diabetes Detection Flask WebApp
